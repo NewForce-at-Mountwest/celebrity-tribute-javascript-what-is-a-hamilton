@@ -1,10 +1,7 @@
 # Celebrity Tribute (JavaScript Edition)
 
-# NewForce Tribute Agency
 
-Your clients were so happy with the last website you built for them that they've asked you to build them another, similar website about Lin Manuel Miranda. The requirements are almost exactly the same, except this time you should use JavaScript to build your HTML components and insert them into the DOM.
-
-
+Your clients at the NewForce Tribute Agency were so happy with the last website you built for them that they've asked you to build them another, similar website about Lin Manuel Miranda. The specs are almost exactly the same, except this time you should use JavaScript to build your HTML components and insert them into the DOM.
 
 You should start by copying and pasting the following boilerplate code between the `body` tags of your `index.html` file:
 
@@ -95,7 +92,7 @@ const linData = {
 
 ```
 ## This is your introduction to Single Page Applications.
-In your last project, you created seperate HTML files for each section of content (executive summary, career, etc). This time, you should only create one HTML file (`index.html`). You'll use JavaScript to dynamically populate different sections in your HTML file. You might notice that your boilerplate code includes a nav bar and it looks a little different than what you might have seen before. That's because this nav bar is set up to link to different sections on your web page by their `id`. You shouldn't have to change anything in the boilerplate nav bar- it should work for you right out of the box.
+In your last project, you created seperate HTML files for each section of content (executive summary, career, etc). This time, you should only create one HTML file (`index.html`). You'll use JavaScript to dynamically populate different sections in your HTML file. You might notice that your boilerplate code includes a nav bar and it looks a little different than what you might have seen before. That's because this nav bar is set up to link to different sections on your web page by their `id` attribute. You shouldn't have to change anything in the boilerplate nav bar- it should work for you right out of the box.
 
 ## Your job is to use JavaScript to:
 - Build HTML strings to represent the data you've been given about Lin Manuel Miranda
