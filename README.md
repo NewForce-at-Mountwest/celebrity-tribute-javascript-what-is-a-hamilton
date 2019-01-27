@@ -9,7 +9,7 @@ You should start by copying and pasting the following boilerplate code between t
     <nav>
       <a href="#executive-summary">Executive Summary</a>
       <a href="#personal-life">Personal</a> 
-      <a href="#news-feed">News Feecd</a>
+      <a href="#news-feed">News Feed</a>
       <a href="#career">Career</a>
     </nav>
 
@@ -80,7 +80,7 @@ const linData = {
     awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
   },
   executiveSummary: {
-    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee Elise Goldsberry", "Phillipa Soo"],
+    knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
     image: {
       photURL: "https://pmcvariety.files.wordpress.com/2018/07/lin-manuel.jpg?w=1000",
       caption: "Lin Manuel Miranda Headshot"
