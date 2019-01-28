@@ -99,14 +99,14 @@ const linData = {
     return `<li class="${style}">${title}</li>`
 }
 // function for full list component
-let unorderedListBuild = ""
 const createListComponent = (listInfo, listClass) => {
-  
+  let unorderedListBuild = ""
+
   for(let i=0; i < listInfo.length; i++){
 
    unorderedListBuild += li(listInfo[i], listClass)
 }
-return `<ul id="list">${unorderedListBuild}</ul>`
+return `<ul class="list">${unorderedListBuild}</ul>`
 }
 // run below this to check functionality
 // document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
@@ -152,7 +152,9 @@ const h3 = (contentTitle) => {
   return `<h3>${contentTitle}</h3>`
 }
 
-
+const h4 = (insideDivTitle) => {
+  return `<h4>${insideDivTitle}</h4>`
+}
 // career: {
 //   shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
 //   MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
@@ -161,21 +163,35 @@ const h3 = (contentTitle) => {
 //   awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
 // },
 
-const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation) => {
+
+
+
+// Finished Career Page Function
+const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
   `
     ${h2(career)}
     ${h3(shortIntroHeader)}
     ${P(shortIntroLocation)}
-    ${h3(musicalsWrittenHeader)}
-    ${createListComponent(musicalsWrittenLocation, "list")}
+    ${h3(musicalsWrittenHeader)}  
+    ${createListComponent(musicalsWrittenLocation, "list_child")}
     ${h3(notableRolesHeader)}
-    ${createListComponent(notableRolesLocation)}
-    ${h3()}
-    ${createListComponent()}
-    ${h3()}
-    ${createListComponent()}
-  
+    ${createListComponent(notableRolesLocation, "list_child")}
+    ${h3(notableSongs)}
+    ${createListComponent(notableSongsLocation, "list_child")}
+    ${h3(awards)}
+    ${createListComponent(awardsLocation, "list_child")}
   `
-const h4 = (insideDivTitle) => {
-  return `<h4>${insideDivTitle}</h4>`
-}
+
+const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
+
+document.querySelector("#career").innerHTML = finishedCareerPageHTML
+
+
+
+
+
+
+
+
+
+
