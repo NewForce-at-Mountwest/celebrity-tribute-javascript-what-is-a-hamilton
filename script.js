@@ -129,7 +129,7 @@ const divNews = (style, insideDivTitle, url, altText, text) => {
     </div>`
 }
 //link-functions
-const links = (url, altText) => {
+const a = (url, altText) => {
   return `<a href=${url} target="_blank">${altText}</a>`
 }
 //How to call the function (insert your section into ("#sectionName"):
@@ -161,25 +161,46 @@ const h4 = (insideDivTitle) => {
 //************************************************************************************************* */
 
 
-//build a section for the online resources
-const buildSectionOnlineRes =(insideDivTitle, url, altText)=> {
-onlineDivHTML = ""
-for(let i=0; i<Array.length; i++){
-onlineDivHTML = onlineDivHTML +`${divExtras[i](insideDivTitle, url, altText)}`
+// start creating functions to make sections for extras page
+
+
+//build a section for online resources
+const buildSectionOnlineRes = (style, array)=>{
+let buildString = ""
+for(let i=0;i<array.length; i++){
+  
+ let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
+ buildString = buildString + HTMLString
 }
+//add header to string
+buildString = `<h3>Online Resources</h3>${buildString}`
+//return HTML string 
+return buildString;
+}
+const onlineResourcesString = buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
 
-document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes(linData.extrasReport.onlineResources.name, linData.extrasReport.onlineResources.url, "" )
+// document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
 
-//build a section for the places to viwe
-// const buildSectionPlacesToView =()=>{
-// placesToViewHTML = ""
-// for(let i=0; i<Array.length; i++){
-// placesToViewHTML = placesToViewHTML+ `${divExtras[i]()}`
-// }
+//build a section for places to view
 
-// }
+const buildSectionPlacesToView = (style, array)=>{
+  let buildString = ""
+  for(let i=0;i<array.length; i++){
+    
+   let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
+   buildString = buildString + HTMLString
+  }
+  buildString = `<h3>Places to View</h3> ${buildString}`
+  return buildString;
+  }
+  const placesToViewString = buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
 
-// //build a section for past show dates
+  document.querySelector("#extras-report").innerHTML=buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
+  document.querySelector("#extras-report").innerHTML = `${onlineResourcesString}${placesToViewString}`
+
+
+
+// build a section for past show dates
 
 // const buildSectionShowDates = ()=>{
 // ${h3()}
