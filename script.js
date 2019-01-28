@@ -91,18 +91,32 @@ const linData = {
     }
   }
 
-//   const section = (title, style) => {
-//     return `<section class="bordered dashed ${style}">${title}</section>`
-// }
-
-// const aside = (title, style) => {
-//     return `<aside class="${style}">${title}</aside>`
-
+//link-functions
 const links = (url, altText, style) => {
   return `<a href=${url} class=${style}>${altText}</a>`
 }
-document.querySelector
-links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
+//How to call the function"
+//document.querySelector("#container").innerHTML = 
+//links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
 
 
 
+//H-elements
+const h1 = (title, style) => {
+  return `<h1 class="${style}">${title}</h1>`
+}
+//How to call the function:
+// document.querySelector("#container").innerHTML =
+//     h1("Marcus Fulbright", "xx-large")
+
+const h2 = (pageName, style) => {
+  return `<h2 class="${style}">${pageName}</h2>`
+}
+
+const h3 = (contentTitle, style) => {
+  return `<h3 class="${style}">${title}</h3>`
+}
+
+const h4 = (insideDivTitle, style) => {
+  return `<h4 class="${style}">${title}</h4>`
+}
