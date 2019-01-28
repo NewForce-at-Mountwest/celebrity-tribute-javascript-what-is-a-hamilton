@@ -90,3 +90,25 @@ const linData = {
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
     }
   }
+
+  const ul = (title, style) => {
+    return `<ul class="${style}">${title}</ul>`
+}
+
+  const li = (title, style) => {
+    return `<li class="${style}">${title}</li>`
+}
+
+const createListComponent = (listInfo, listClass) => `
+  <ul id="list">
+    ${li(listInfo, listClass)}
+  </ul>
+`
+document.querySelector("#career").innerHTML = createListComponent(linData.career.shortIntro, "shortIntro")
+
+
+
+
+
+
+
