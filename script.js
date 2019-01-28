@@ -120,6 +120,23 @@ return `<ul id="list">${unorderedListBuild}</ul>`
 
 
 
+// Div container function for extras page
+  const divExtras = (style, insideDivTitle, style1, url, altText, style2) => {
+    return `<section div="${style}">
+    ${h4 (insideDivTitle, style1)}
+    ${a (url, altText, style2)}
+    </div>`
+}
+
+// Div container function for news feed page
+
+const divNews = (style, insideDivTitle, style1, url, altText, style2, text, style3) => {
+  return `<section div="${style}">
+    ${h4 (insideDivTitle, style1)}
+    ${a (url, altText, style2)}
+    ${p (text, style3)}
+    </div>`
+}
 //link-functions
 const links = (url, altText, style) => {
   return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
