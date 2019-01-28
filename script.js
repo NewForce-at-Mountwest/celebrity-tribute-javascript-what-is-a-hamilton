@@ -154,3 +154,10 @@ const h3 = (contentTitle) => {
 const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
+
+
+const summarySection1 = (name) => `
+    
+        ${h3(name)}
+        ${createListComponent(linData.executiveSummary.listOfAliases, aliasList)} `
+      
