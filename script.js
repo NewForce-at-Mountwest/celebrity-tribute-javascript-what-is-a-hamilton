@@ -119,3 +119,30 @@ const h4 = (insideDivTitle, style) => {
 }
 
 
+//call the functions to create extras page
+const extras = (section, pageName, style1, contentTitle, style2)=> {
+<section id ="">
+  return `${h2(pageName, style1)}
+${h3(contentTitle, style2)}
+for(let i=0; i<Array.length; i++){
+${divExtras()}
+${h3}(contentTitle, style2)
+for(let i=0)
+${divExtras()}
+${divExtras()}
+${h3()}
+${ul()}
+
+   ``
+}
+
+  const createStudentComponent = (name, studentClass, sectionClass, info) => `
+    <div id="student">
+        ${h1(name, studentClass, "xx-large")}
+        ${section(sectionClass, "section--padded")}
+        ${aside(info, "pushRight")}
+    </div>
+}
+
+
+
