@@ -90,3 +90,9 @@ const linData = {
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
     }
   }
+
+  // This function creates a paragraph element with text and a user-defined style
+  const P = (text, style) => {
+    return `<p class="${style}">${text}</p>`
+}
+  
