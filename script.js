@@ -164,10 +164,10 @@ const h4 = (insideDivTitle, style) => {
 
 //************************************************************************************************* */
 //call the functions to create extras page
-const buildExtrasPage = (section, pageName, style1, contentTitle, style2)=> {
+const buildExtrasPage = (pageName, contentTitle)=> {
 let HTMLString =""
-  HTMLString =HTMLString +`${h2(pageName, style1)}
-${h3(contentTitle, style2)}`
+  HTMLString =HTMLString +`${h2(pageName)}
+${h3(contentTitle)}`
 
 //build a section for the online resources
 const buildSectionOnlineRes =()=> {
