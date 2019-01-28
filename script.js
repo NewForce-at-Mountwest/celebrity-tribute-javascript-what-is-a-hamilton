@@ -111,18 +111,18 @@ return `<ul id="list">${unorderedListBuild}</ul>`
 // run below this to check functionality
 // document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
 // Div container function for extras page
-  const divExtras = (style, insideDivTitle, style1, url, altText, style2) => {
+  const divExtras = (style, insideDivTitle, url, altText) => {
     return `<section div="${style}">
-    ${h4 (insideDivTitle, style1)}
-    ${a (url, altText, style2)}
+    ${h4 (insideDivTitle)}
+    ${a (url, altText)}
     </div>`
 }
 // Div container function for news feed page
-const divNews = (style, insideDivTitle, style1, url, altText, style2, text, style3) => {
+const divNews = (style, insideDivTitle, url, altText, text) => {
   return `<section div="${style}">
-    ${h4 (insideDivTitle, style1)}
-    ${a (url, altText, style2)}
-    ${p (text, style3)}
+    ${h4 (insideDivTitle)}
+    ${a (url, altText)}
+    ${p (text)}
     </div>`
 }
 //link-functions
