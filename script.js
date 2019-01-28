@@ -90,3 +90,23 @@ const linData = {
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
     }
   }
+
+//H-elements
+const h1 = (title, style) => {
+  return `<h1 class="${style}">${title}</h1>`
+}
+//How to call the function:
+// document.querySelector("#container").innerHTML =
+//     h1("Marcus Fulbright", "xx-large")
+
+const h2 = (pageName, style) => {
+  return `<h2 class="${style}">${pageName}</h2>`
+}
+
+const h3 = (contentTitle, style) => {
+  return `<h3 class="${style}">${title}</h3>`
+}
+
+const h4 = (insideDivTitle, style) => {
+  return `<h4 class="${style}">${title}</h4>`
+}
