@@ -90,21 +90,24 @@ const linData = {
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
     }
   }
-
+// function for <ul></ul> 
   const ul = (title, style) => {
     return `<ul class="${style}">${title}</ul>`
 }
-
+// function for <li></li>
   const li = (title, style) => {
     return `<li class="${style}">${title}</li>`
 }
-
+// function for full list component
 const createListComponent = (listInfo, listClass) => `
   <ul id="list">
     ${li(listInfo, listClass)}
   </ul>
 `
-document.querySelector("#career").innerHTML = createListComponent(linData.career.shortIntro, "shortIntro")
+
+
+// run below this to check functionality
+// document.querySelector("#career").innerHTML = createListComponent(linData.career.shortIntro, "shortIntro")
 
 
 
@@ -112,3 +115,22 @@ document.querySelector("#career").innerHTML = createListComponent(linData.career
 
 
 
+//H-elements
+const h1 = (title, style) => {
+  return `<h1 class="${style}">${title}</h1>`
+}
+//How to call the function:
+// document.querySelector("#container").innerHTML =
+//     h1("Marcus Fulbright", "xx-large")
+
+const h2 = (pageName, style) => {
+  return `<h2 class="${style}">${pageName}</h2>`
+}
+
+const h3 = (contentTitle, style) => {
+  return `<h3 class="${style}">${title}</h3>`
+}
+
+const h4 = (insideDivTitle, style) => {
+  return `<h4 class="${style}">${title}</h4>`
+}
