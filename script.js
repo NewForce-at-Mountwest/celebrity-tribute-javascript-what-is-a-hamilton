@@ -101,13 +101,15 @@ const linData = {
 // function for full list component
 const createListComponent = (listInfo, listClass) => `
   <ul id="list">
+  for(let i=0; ){
     ${li(listInfo, listClass)}
   </ul>
+}
 `
 
 
 // run below this to check functionality
-// document.querySelector("#career").innerHTML = createListComponent(linData.career.shortIntro, "shortIntro")
+// document.querySelector("#career").innerHTML = createListComponent(linData.career.MusicalsWritten, "shortIntro")
 
 
 
