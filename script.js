@@ -96,8 +96,7 @@ const links = (url, altText, style) => {
   return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
 }
 //How to call the function (insert your section into ("#sectionName"):
-//document.querySelector("#sectionName").innerHTML = 
-//links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
+//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
 
 
 
