@@ -91,10 +91,24 @@ const linData = {
     }
   }
 
-// Div container function
-  const div = (title, style) => {
-    return `<section div="${style}">${title}</div>`
+// Div container function for extras page
+  const divExtras = (style, insideDivTitle, style1, url, altText, style2) => {
+    return `<section div="${style}">
+    ${h4 (insideDivTitle, style1)}
+    ${a (url, altText, style2)}
+    </div>`
 }
+
+// Div container function for news feed page
+
+const divNews = (style, insideDivTitle, style1, url, altText, style2, text, style3) => {
+  return `<section div="${style}">
+    ${h4 (insideDivTitle, style1)}
+    ${a (url, altText, style2)}
+    ${p (text, style3)}
+    </div>`
+}
+
 
 
   // This function creates a paragraph element with text and a user-defined style
