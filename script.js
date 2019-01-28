@@ -117,6 +117,14 @@ const createListComponent = (listInfo, listClass) => `
 
 
 
+//link-functions
+const links = (url, altText, style) => {
+  return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
+}
+//How to call the function (insert your section into ("#sectionName"):
+//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
+
+
 
   // This function creates a paragraph element with text and a user-defined style
   const P = (text, style) => {
