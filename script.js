@@ -110,15 +110,8 @@ return `<ul id="list">${unorderedListBuild}</ul>`
 }
 
 
-
 // run below this to check functionality
 // document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
-
-
-
-
-
-
 
 // Div container function for extras page
   const divExtras = (style, insideDivTitle, style1, url, altText, style2) => {
@@ -169,27 +162,36 @@ const h4 = (insideDivTitle, style) => {
   return `<h4 class="${style}">${insideDivTitle}</h4>`
 }
 
-
+//************************************************************************************************* */
 //call the functions to create extras page
 const buildExtrasPage = (section, pageName, style1, contentTitle, style2)=> {
 let HTMLString =""
   HTMLString =HTMLString +`${h2(pageName, style1)}
 ${h3(contentTitle, style2)}`
 
-const buildSectionView =()=> {
+//build a section for the online resources
+const buildSectionOnlineRes =()=> {
 onlineDivHTML = ""
 for(let i=0; i<Array.length; i++){
 onlineDivHTML = onlineDivHTML +`${divExtras[i]()}`
 }
 
+//build a section for the places to viwe
+const buildSectionPlacesToView =()=>{
 placesToViewHTML = ""
 for(let i=0; i<Array.length; i++){
 placesToViewHTML = placesToViewHTML+ `${divExtras[i]()}`
 }
 
+}
+
+//build a section for past show dates
+
+const buildSectionShowDates = ()=>{
 ${h3()}
 for (let i = 0; Array.length; i++){
 ${ul()}
+}
 }
 
    
