@@ -51,7 +51,7 @@ const linData = {
       MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
       notableRoles: ["Usnavi", "Alexander Hamilton"],
       notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
-      awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
+      awards: ["Multiple, Grammy Awards", "Multiple, Tony Awards", "An Emmy Award"]
     },
     executiveSummary: {
       knownCollaborations: ["Dwayne The Rock Johnson", "The McElroy Brothers", "Emily Blunt", "Leslie Odom Jr.", "Daveed Diggs", "Renee         Elise Goldsberry", "Phillipa Soo"],
