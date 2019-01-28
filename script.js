@@ -98,14 +98,11 @@ const links = (url, altText, style) => {
 //How to call the function (insert your section into ("#sectionName"):
 //document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
 
-
-
-  // This function creates a paragraph element with text and a user-defined style
+// This function creates a paragraph element with text and a user-defined style
   const P = (text, style) => {
     return `<p class="${style}">${text}</p>`
 }
   
-
 //H-elements
 const h1 = (title, style) => {
   return `<h1 class="${style}">${title}</h1>`
@@ -128,29 +125,30 @@ const h4 = (insideDivTitle, style) => {
 
 
 //call the functions to create extras page
-const extras = (section, pageName, style1, contentTitle, style2)=> {
-<section id ="">
-  return `${h2(pageName, style1)}
-${h3(contentTitle, style2)}
+const buildExtrasPage = (section, pageName, style1, contentTitle, style2)=> {
+let HTMLString =""
+  HTMLString =HTMLString +`${h2(pageName, style1)}
+${h3(contentTitle, style2)}`
+
+const buildSection =()=> {
+onlineDivHTML = ""
 for(let i=0; i<Array.length; i++){
-${divExtras()}
-${h3}(contentTitle, style2)
-for(let i=0)
-${divExtras()}
-${divExtras()}
+onlineDivHTML = onlineDivHTML +`${divExtras[i]()}`
+}
+
+placesToViewHTML = ""
+for(let i=0; i<Array.length; i++){
+placesToViewHTML = placesToViewHTML+ `${divExtras[i]()}`
+}
+
 ${h3()}
+for (let i = 0; Array.length; i++){
 ${ul()}
-
-   ``
 }
 
-  const createStudentComponent = (name, studentClass, sectionClass, info) => `
-    <div id="student">
-        ${h1(name, studentClass, "xx-large")}
-        ${section(sectionClass, "section--padded")}
-        ${aside(info, "pushRight")}
-    </div>
+   
 }
+
 
 
 
