@@ -30,7 +30,6 @@ const linData = {
         url: "https://www.npr.org/2019/01/08/683284098/lin-manuel-miranda-and-hamilton-partners-save-a-manhattan-theater-bookstore",
         date: "1/8/19"
       }
-  
     ],
     personalLife: {
       birthDate: "January 16, 1980",
@@ -62,5 +61,32 @@ const linData = {
       },
       listOfAliases: ["Lin", "LMM", "Alexander Hamilton"],
       countryOfResidence: "United States"
+    },
+    extrasReport: {
+        onlineResources: [
+            {
+                name: "Wikipedia",
+                url: "https://en.wikipedia.org/wiki/Lin-Manuel_Miranda"
+            },
+            {
+                name: "Official Website",
+                url: "http://www.linmanuel.com/"
+            },
+            {
+                name: "Fan Website",
+                url: "https://linmiranda.com/"
+            }
+        ],
+        placesToViewWork: [
+            {
+                name: "Youtube",
+                url: ""
+            },
+            {
+                name: "Broadway",
+                url: ""
+            }
+        ],
+        pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
     }
   }
