@@ -109,8 +109,8 @@ const divNews = (style, insideDivTitle, style1, url, altText, style2, text, styl
     </div>`
 }
 //link-functions
-const links = (url, altText, style) => {
-  return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
+const links = (url, altText) => {
+  return `<a href=${url} target="_blank">${altText}</a>`
 }
 //How to call the function (insert your section into ("#sectionName"):
 //document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
@@ -118,28 +118,28 @@ const links = (url, altText, style) => {
 
 
   // This function creates a paragraph element with text and a user-defined style
-  const P = (text, style) => {
-    return `<p class="${style}">${text}</p>`
+  const P = (text) => {
+    return `<p>${text}</p>`
 }
   
 
 //H-elements
-const h1 = (title, style) => {
-  return `<h1 class="${style}">${title}</h1>`
+const h1 = (title) => {
+  return `<h1>${title}</h1>`
 }
 //How to call the function:
 // document.querySelector("#container").innerHTML =
 //     h1("Marcus Fulbright", "xx-large")
 
-const h2 = (pageName, style) => {
-  return `<h2 class="${style}">${pageName}</h2>`
+const h2 = (pageName) => {
+  return `<h2>${pageName}</h2>`
 }
 
-const h3 = (contentTitle, style) => {
-  return `<h3 class="${style}">${contentTitle}</h3>`
+const h3 = (contentTitle) => {
+  return `<h3>${contentTitle}</h3>`
 }
 
-const h4 = (insideDivTitle, style) => {
-  return `<h4 class="${style}">${insideDivTitle}</h4>`
+const h4 = (insideDivTitle) => {
+  return `<h4>${insideDivTitle}</h4>`
 }
 
