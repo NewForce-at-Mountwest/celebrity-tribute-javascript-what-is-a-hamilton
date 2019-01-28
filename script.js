@@ -91,8 +91,30 @@ const linData = {
     }
   }
 
+
   // This function creates a paragraph element with text and a user-defined style
   const P = (text, style) => {
     return `<p class="${style}">${text}</p>`
 }
   
+
+//H-elements
+const h1 = (title, style) => {
+  return `<h1 class="${style}">${title}</h1>`
+}
+//How to call the function:
+// document.querySelector("#container").innerHTML =
+//     h1("Marcus Fulbright", "xx-large")
+
+const h2 = (pageName, style) => {
+  return `<h2 class="${style}">${pageName}</h2>`
+}
+
+const h3 = (contentTitle, style) => {
+  return `<h3 class="${style}">${contentTitle}</h3>`
+}
+
+const h4 = (insideDivTitle, style) => {
+  return `<h4 class="${style}">${insideDivTitle}</h4>`
+}
+
