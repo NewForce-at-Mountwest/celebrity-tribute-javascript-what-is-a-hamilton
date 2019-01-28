@@ -108,6 +108,12 @@ const divNews = (style, insideDivTitle, style1, url, altText, style2, text, styl
     ${p (text, style3)}
     </div>`
 }
+//link-functions
+const links = (url, altText, style) => {
+  return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
+}
+//How to call the function (insert your section into ("#sectionName"):
+//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
 
 
 
