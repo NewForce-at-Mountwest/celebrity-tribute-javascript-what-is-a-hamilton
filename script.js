@@ -147,7 +147,7 @@ let HTMLString =""
   HTMLString =HTMLString +`${h2(pageName, style1)}
 ${h3(contentTitle, style2)}`
 
-const buildSection =()=> {
+const buildSectionView =()=> {
 onlineDivHTML = ""
 for(let i=0; i<Array.length; i++){
 onlineDivHTML = onlineDivHTML +`${divExtras[i]()}`
