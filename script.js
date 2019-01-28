@@ -93,10 +93,10 @@ const linData = {
 
 //link-functions
 const links = (url, altText, style) => {
-  return `<a href=${url} class=${style}>${altText}</a>`
+  return `<a href=${url} target="_blank" class=${style}>${altText}</a>`
 }
-//How to call the function"
-//document.querySelector("#container").innerHTML = 
+//How to call the function (insert your section into ("#sectionName"):
+//document.querySelector("#sectionName").innerHTML = 
 //links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
 
 
