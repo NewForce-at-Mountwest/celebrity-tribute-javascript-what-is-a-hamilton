@@ -93,7 +93,7 @@ const linData = {
 
 // Div container function
   const div = (title, style) => {
-    return `<section class="${style}">${title}</section>`
+    return `<section div="${style}">${title}</div>`
 }
 
 
