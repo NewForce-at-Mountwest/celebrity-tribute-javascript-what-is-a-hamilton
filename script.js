@@ -167,6 +167,7 @@ onlineDivHTML = ""
 for(let i=0; i<Array.length; i++){
 onlineDivHTML = onlineDivHTML +`${divExtras[i](insideDivTitle, url, altText)}`
 }
+}
 
 document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes(linData.extrasReport.onlineResources.name, linData.extrasReport.onlineResources.url, "" )
 
