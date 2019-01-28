@@ -99,17 +99,20 @@ const linData = {
     return `<li class="${style}">${title}</li>`
 }
 // function for full list component
-const createListComponent = (listInfo, listClass) => `
-  <ul id="list">
-  for(let i=0; ){
-    ${li(listInfo, listClass)}
-  </ul>
+let unorderedListBuild = ""
+const createListComponent = (listInfo, listClass) => {
+  
+  for(let i=0; i < listInfo.length; i++){
+
+   unorderedListBuild += li(listInfo[i], listClass)
 }
-`
+return `<ul id="list">${unorderedListBuild}</ul>`
+}
+
 
 
 // run below this to check functionality
-// document.querySelector("#career").innerHTML = createListComponent(linData.career.MusicalsWritten, "shortIntro")
+// document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
 
 
 
