@@ -108,18 +108,8 @@ const createListComponent = (listInfo, listClass) => {
 }
 return `<ul id="list">${unorderedListBuild}</ul>`
 }
-
-
-
 // run below this to check functionality
 // document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
-
-
-
-
-
-
-
 // Div container function for extras page
   const divExtras = (style, insideDivTitle, style1, url, altText, style2) => {
     return `<section div="${style}">
@@ -127,9 +117,7 @@ return `<ul id="list">${unorderedListBuild}</ul>`
     ${a (url, altText, style2)}
     </div>`
 }
-
 // Div container function for news feed page
-
 const divNews = (style, insideDivTitle, style1, url, altText, style2, text, style3) => {
   return `<section div="${style}">
     ${h4 (insideDivTitle, style1)}
@@ -150,8 +138,6 @@ const links = (url, altText) => {
   const P = (text) => {
     return `<p>${text}</p>`
 }
-  
-
 //H-elements
 const h1 = (title) => {
   return `<h1>${title}</h1>`
@@ -159,16 +145,12 @@ const h1 = (title) => {
 //How to call the function:
 // document.querySelector("#container").innerHTML =
 //     h1("Marcus Fulbright", "xx-large")
-
 const h2 = (pageName) => {
   return `<h2>${pageName}</h2>`
 }
-
 const h3 = (contentTitle) => {
   return `<h3>${contentTitle}</h3>`
 }
-
 const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
-
