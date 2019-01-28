@@ -4,5 +4,9 @@
 }
 
 .divStyle{
-    color: red
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    color: red;
+    border: black solid 1px;
 }

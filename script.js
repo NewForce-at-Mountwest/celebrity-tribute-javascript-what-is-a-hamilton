@@ -99,14 +99,14 @@ const linData = {
     return `<li class="${style}">${title}</li>`
 }
 // function for full list component
-let unorderedListBuild = ""
 const createListComponent = (listInfo, listClass) => {
-  
+  let unorderedListBuild = ""
+
   for(let i=0; i < listInfo.length; i++){
 
    unorderedListBuild += li(listInfo[i], listClass)
 }
-return `<ul id="list">${unorderedListBuild}</ul>`
+return `<ul class="list">${unorderedListBuild}</ul>`
 }
 
 // run below this to check functionality
@@ -115,14 +115,14 @@ return `<ul id="list">${unorderedListBuild}</ul>`
 
 // Div container function for extras page
   const divExtras = (style, insideDivTitle, url, altText) => {
-    return `<section div="${style}">
+    return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
     </div>`
 }
 // Div container function for news feed page
 const divNews = (style, insideDivTitle, url, altText, text) => {
-  return `<section div="${style}">
+  return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
     ${p (text)}
@@ -153,10 +153,31 @@ const h2 = (pageName) => {
 const h3 = (contentTitle) => {
   return `<h3>${contentTitle}</h3>`
 }
+
 const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
 
+
+// Finished Career Page Function
+const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
+  `
+    ${h2(career)}
+    ${h3(shortIntroHeader)}
+    ${P(shortIntroLocation)}
+    ${h3(musicalsWrittenHeader)}  
+    ${createListComponent(musicalsWrittenLocation, "list_child")}
+    ${h3(notableRolesHeader)}
+    ${createListComponent(notableRolesLocation, "list_child")}
+    ${h3(notableSongs)}
+    ${createListComponent(notableSongsLocation, "list_child")}
+    ${h3(awards)}
+    ${createListComponent(awardsLocation, "list_child")}
+  `
+
+const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
+
+document.querySelector("#career").innerHTML = finishedCareerPageHTML
 
 //************************************************************************************************* */
 
@@ -166,55 +187,68 @@ const h4 = (insideDivTitle) => {
 
 //build a section for online resources
 const buildSectionOnlineRes = (style, array)=>{
-let buildString = ""
-for(let i=0;i<array.length; i++){
-  
- let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
- buildString = buildString + HTMLString
-}
-//add header to string
-buildString = `<h3>Online Resources</h3>${buildString}`
-//return HTML string 
-return buildString;
-}
-const onlineResourcesString = buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
-
-// document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
-
-//build a section for places to view
-
-const buildSectionPlacesToView = (style, array)=>{
   let buildString = ""
   for(let i=0;i<array.length; i++){
     
    let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
-   buildString = buildString + HTMLString
+   buildString = `${buildString}${HTMLString}`
+   console.log("this is the string it is building in online res", buildString)
   }
-  buildString = `<h3>Places to View</h3> ${buildString}`
+  //add header to string
+  buildString = `<h3>Online Resources</h3>${buildString}`
+  //return HTML string 
   return buildString;
   }
-  const placesToViewString = buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
+  const onlineResourcesString = buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
+  console.log("online resources string", onlineResourcesString)
+  
+  // document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
+  
+  //build a section for places to view
+  
+  const buildSectionPlacesToView = (style, array)=>{
+    let buildString = ""
+    for(let i=0;i<array.length; i++){
+      
+     let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
+     buildString = buildString + HTMLString
+    }
+    buildString = `<h3>Places to View</h3> ${buildString}`
+    return buildString;
+    }
+    const placesToViewString = buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
+  
+    // document.querySelector("#extras-report").innerHTML=buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
+    
+  
+  
+  
+  // build a section for past show dates
+   
+  const buildSectionShowDates = (array, listClass) => {
+    let buildString = "";
+    buildString = buildString + createListComponent(array, listClass)
+    buildString = `<h3>Past Show Dates</h3> ${buildString}`
+  return buildString;
+  }
+    
+ const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
+ 
+ document.querySelector("#extras-report").innerHTML = `${onlineResourcesString}${placesToViewString}${showDatesString}`
 
-  document.querySelector("#extras-report").innerHTML=buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
-  document.querySelector("#extras-report").innerHTML = `${onlineResourcesString}${placesToViewString}`
+// function for full list component
+// const createListComponent = (listInfo, listClass) => {
+//   let unorderedListBuild = ""
 
+//   for(let i=0; i < listInfo.length; i++){
 
-
-// build a section for past show dates
-
-// const buildSectionShowDates = ()=>{
-// ${h3()}
-// for (let i = 0; Array.length; i++){
-// ${ul()}
+//    unorderedListBuild += li(listInfo[i], listClass)
 // }
-// }
+// return `<ul class="list">${unorderedListBuild}</ul>`
 
-// //call the functions to create extras page
-// const buildExtrasPage = (pageName, contentTitle)=> {
-//   let HTMLString =""
-//     HTMLString =HTMLString +`${h2(pageName)}
-//   ${h3(contentTitle)}`
-//   }
+
+
+
 
 
 
