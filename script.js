@@ -187,7 +187,28 @@ const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career
 document.querySelector("#career").innerHTML = finishedCareerPageHTML
 
 
+const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => `${h2(personalLife)}
+${h3(birthDate)}
+${P(date)}
+${h3(birthLocation)}
+${P(location)}
+${h3(cityOfResidence)}
+${P(city)}
+${h3(nationality)}
+${P(natLocs)}
+${h3(family)}
+${ul(spouseLable)}
+${li(spouse)}
+${ul(parentsLable)}
+${createListComponent(parents)}
+${ul(kidsLable)}
+${createListComponent(kids)}
+${ul(petsLable)}
+${createListComponent(pets)}
+`
 
+document.querySelector("#personal-life").innerHTML = personalBuilder(
+"Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
 
 
 
