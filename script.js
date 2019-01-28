@@ -172,3 +172,20 @@ const h4 = (insideDivTitle, style) => {
   return `<h4 class="${style}">${insideDivTitle}</h4>`
 }
 
+
+// career: {
+//   shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
+//   MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
+//   notableRoles: ["Usnavi", "Alexander Hamilton"],
+//   notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
+//   awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
+// },
+
+const careerPageHTML = () => {
+  `
+    ${h2()}
+    ${h3()}
+    ${P()}
+  
+  `
+}
