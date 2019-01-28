@@ -103,10 +103,10 @@ const h2 = (pageName, style) => {
   return `<h2 class="${style}">${pageName}</h2>`
 }
 
-const h3 = (title, style) => {
+const h3 = (contentTitle, style) => {
   return `<h3 class="${style}">${title}</h3>`
 }
 
-const h4 = (title, style) => {
+const h4 = (insideDivTitle, style) => {
   return `<h4 class="${style}">${title}</h4>`
 }
