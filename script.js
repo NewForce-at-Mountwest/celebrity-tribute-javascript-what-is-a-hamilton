@@ -80,11 +80,11 @@ const linData = {
         placesToViewWork: [
             {
                 name: "Youtube",
-                url: ""
+                url: "https://www.youtube.com/channel/UChwAKuNBC2Bc0G26tlZBI4w"
             },
             {
                 name: "Broadway",
-                url: ""
+                url: "https://www.broadway.com/shows/hamilton-broadway/"
             }
         ],
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
@@ -158,6 +158,51 @@ const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
 
+const img = (imageURL, altText) => {
+  return `<img src="${imageURL}" alt="${altText}">`
+}
+  
+
+const summarySection1 = (name,listComponent, aliasList) => {
+    
+        return `${h3(name)}
+        ${createListComponent(listComponent, aliasList)} `}
+    //  document.querySelector("#Aliases").innerHTML = summarySection1("Aliases", "AliasList")
+    const aliases = summarySection1("Aliases",linData.executiveSummary.listOfAliases, "AliasList")
+    document.querySelector("#executive-summary").innerHTML = aliases;
+
+const summarySection2 = (name, listComponent, collaboratorsList) => {
+  return `${h3(name)}
+  ${createListComponent(listComponent, collaboratorsList)}`}
+  const collaborators = summarySection2("Known Collaborators", linData.executiveSummary.knownCollaborations, "collaborationsList" )
+  document.querySelector("#executive-summary").innerHTML = collaborators;
+
+ const summaryPageFunction = (title, Alias, url, altText, Collaborations) => {
+  return `${h1(title)}
+          ${Alias}
+          ${img(url,altText)}
+          ${Collaborations}`}
+  
+const summaryPage = summaryPageFunction("Lin Manuel Miranda", aliases, linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption, collaborators)
+document.querySelector("#executive-summary").innerHTML = summaryPage;
+  
+
+// Need to build loop so the add to each other?!
+
+
+
+
+  // career: {
+//   shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
+//   MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
+//   notableRoles: ["Usnavi", "Alexander Hamilton"],
+//   notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
+//   awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
+// },
+
+
+
+
 // Finished Career Page Function
 const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
   `
@@ -220,15 +265,15 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
   //return HTML string 
   return buildString;
   }
-  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources", "extras-section")
-  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View", "extras-section")
+  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources:", "extras-section")
+  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View:", "extras-section")
   // console.log("online resources string", onlineResourcesString) 
   
   // build a section for past show dates   
   const buildSectionShowDates = (array, listClass) => {
     let buildString = "";
     buildString = buildString + createListComponent(array, listClass)
-    buildString = `<h3>Past Show Dates</h3> ${buildString}`
+    buildString = `<h3>Past Show Dates:</h3> ${buildString}`
   return buildString;
   }
     
