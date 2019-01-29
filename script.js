@@ -246,7 +246,7 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
    console.log("this is the string it is building in online res", buildString)
   }
   //add header to string
-  buildString = `${h3(header)}<section class =${sectionClass}>${buildString}</section>`
+  buildString = `${h2(header)}<section class =${sectionClass}>${buildString}</section>`
   //return HTML string 
   return buildString;
   }

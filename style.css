@@ -63,5 +63,6 @@ h2, h3, h4, p, ul{
 }
 
 .newsfeed{
-    background-color: brown
+    background-color: brown;
+    color: white;
 }
