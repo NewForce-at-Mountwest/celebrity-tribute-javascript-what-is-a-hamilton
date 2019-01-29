@@ -7,8 +7,7 @@ nav {
     padding: 1em;
     font-size: 1.5em;
     padding-left: 1em;
-    
-
+    border-bottom: 1px solid yellow;
 }
 nav a{
     padding-left: 1em;
@@ -70,13 +69,30 @@ h4 {
 }
 
 .newsfeed{
-    background-color: brown;
+    background-color: teal;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    border: 2px solid black;
+    margin: 5px;
+}
+.newsfeed p{
     color: white;
 }
 
-
-  img {
+img {
     max-width: 40%;
     height: auto;
     width: auto\9;
-  }
+}
+
+#personal-life li {
+    /* font-size: 16px;   */
+    font-weight: normal
+}
+#personal-life > ul {
+    font-weight: bold;
+}
+
