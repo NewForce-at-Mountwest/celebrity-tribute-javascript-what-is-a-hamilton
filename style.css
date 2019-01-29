@@ -20,7 +20,7 @@ a:active {
 
 
 h2, h1{
-    padding-top: 3em;
+    padding-top: 4em;
 }
 
 
@@ -49,10 +49,13 @@ h4 {
     flex-direction:row;
     align-items: center;
     justify-content: flex-start;
-    /* padding: 1em; */
+    
     /* margin: 1em; */
     /* border: red solid 1px; */
 
+}
+.extras-section h2{
+    padding: 4em;
 }
 
 .extras-section a{

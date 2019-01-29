@@ -167,24 +167,27 @@ const summarySection1 = (name,listComponent, aliasList) => {
     
         return `${h3(name)}
         ${createListComponent(listComponent, aliasList)} `}
-    //  document.querySelector("#Aliases").innerHTML = summarySection1("Aliases", "AliasList")
+    //  document.querySelector("#section").innerHTML = summarySection1("Aliases", "AliasList")
     const aliases = summarySection1("Aliases",linData.executiveSummary.listOfAliases, "AliasList")
-    document.querySelector("#executive-summary").innerHTML = aliases;
+    // document.querySelector("#section").innerHTML = aliases;
 
 const summarySection2 = (name, listComponent, collaboratorsList) => {
   return `${h3(name)}
   ${createListComponent(listComponent, collaboratorsList)}`}
   const collaborators = summarySection2("Known Collaborators", linData.executiveSummary.knownCollaborations, "collaborationsList" )
-  document.querySelector("#executive-summary").innerHTML = collaborators;
+  // document.querySelector("#section").innerHTML = collaborators;
 
  const summaryPageFunction = (title, Alias, url, altText, Collaborations) => {
-  return `${h1(title)}
+  summaryString =`${h1(title)}
           ${Alias}
           ${img(url,altText)}
-          ${Collaborations}`}
-  
+          ${Collaborations}`
+          document.querySelector("#section").innerHTML =summaryString 
+
+          return summaryString;
+        }
 const summaryPage = summaryPageFunction("Lin Manuel Miranda", aliases, linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption, collaborators)
-document.querySelector("#executive-summary").innerHTML = summaryPage;
+document.querySelector("#section").innerHTML = summaryPage;
   
 
 // Need to build loop so the add to each other?!
@@ -205,7 +208,7 @@ document.querySelector("#executive-summary").innerHTML = summaryPage;
 
 // Finished Career Page Function
 const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
-  `
+  {const careerString=`
     ${h2(career)}
     ${h3(shortIntroHeader)}
     ${P(shortIntroLocation)}
@@ -218,14 +221,16 @@ const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrit
     ${h3(awards)}
     ${createListComponent(awardsLocation, "list_child")}
   `
+  document.querySelector("#section").innerHTML=careerString}
 
-const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
+// const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
 
-document.querySelector("#career").innerHTML = finishedCareerPageHTML
+// document.querySelector("#career").innerHTML = finishedCareerPageHTML
 
 
 
-const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => `${h2(personalLife)}
+const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => {
+  personalString = `${h2(personalLife)}
 ${h3(birthDate)}
 ${P(date)}
 ${h3(birthLocation)}
@@ -245,8 +250,12 @@ ${ul(petsLable)}
 ${createListComponent(pets)}
 `
 
-document.querySelector("#personal-life").innerHTML = personalBuilder(
-"Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+
+document.querySelector("#section").innerHTML = personalString
+// personalBuilder(
+// "Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+}
+
 
 //**************************************************************************************************/
 // start creating functions to make sections for extras page
@@ -278,8 +287,41 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
   }
     
  const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
+
+ const buildExtrasPage = (string1, string2, string3) =>{
+   let buildString = ""
+  buildString = buildString + `${h2("Extras")}${string1}${string2}${string3}`
+  console.log("This is the string that should be printing to the DOM ", buildString)
+  document.querySelector("#section").innerHTML = buildString;
+  
+  return buildString;
+  
+ }
+//Build the Executive SUmmary page with one click
+document.querySelector(".exec").addEventListener("click", function(){summaryPageFunction("Lin Manuel Miranda", aliases, linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption, collaborators)})
  
- document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
+//Build the Personal Page with one click
+document.querySelector(".personal").addEventListener("click", function(){personalBuilder("Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+  })
+
+//build the newsfeed page with one click
+document.querySelector(".news").addEventListener("click", function(){buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")})
+
+
+//build the career page with one click
+  document.querySelector(".career").addEventListener("click", function(){careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)})
+
+///Build the Extras page with one click
+document.querySelector(".extra").addEventListener("click", function(){buildExtrasPage(onlineResourcesString, placesToViewString, showDatesString)})
+
+
+
+
+
+   
+ 
+ 
+//  document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
 //------------------------------------------------------------------------------------------------------
 
  const buildSectionNewsfeed = (style, array, header, sectionClass)=>{
@@ -288,17 +330,19 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
     // call and loop through divExtras function
    let HTMLString = divNews(style, array[i].title, array[i].url, "Link", array[i].date)  
    buildString = `${buildString}${HTMLString}`
-   console.log("this is the string it is building in online res", buildString)
+  //  console.log("this is the string it is building in online res", buildString)
   }
   //add header to string
   buildString = `${h2(header)}<section class =${sectionClass}>${buildString}</section>`
   //return HTML string 
+  document.querySelector("#section").innerHTML=buildString;
   return buildString;
+
   }
 
-  const printNewsfeed = buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")
+  // const printNewsfeed = buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")
   // console.log(onlineNewsfeed);
-  document.querySelector("#news-feed").innerHTML = printNewsfeed;
+  // document.querySelector("#news-feed").innerHTML = printNewsfeed;
 
   // const divNews = (style, insideDivTitle, url, altText, text) => {
   //   return `<div class="${style}">
