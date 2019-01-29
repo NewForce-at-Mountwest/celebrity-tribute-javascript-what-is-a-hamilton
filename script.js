@@ -221,9 +221,9 @@ const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrit
 
 const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
 
-document.querySelector("#career").innerHTML = finishedCareerPageHTML
+// document.querySelector("#career").innerHTML = finishedCareerPageHTML
 
-
+// const runClickBait = () => finishedCareerPageHTML;
 
 const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => `${h2(personalLife)}
 ${h3(birthDate)}
@@ -245,8 +245,8 @@ ${ul(petsLable)}
 ${createListComponent(pets)}
 `
 
-document.querySelector("#personal-life").innerHTML = personalBuilder(
-"Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+// document.querySelector("#personal-life").innerHTML = personalBuilder(
+// "Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
 
 //**************************************************************************************************/
 // start creating functions to make sections for extras page
@@ -279,7 +279,7 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
     
  const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
  
- document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
+//  document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
 //------------------------------------------------------------------------------------------------------
 
  const buildSectionNewsfeed = (style, array, header, sectionClass)=>{
@@ -298,7 +298,7 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
 
   const printNewsfeed = buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")
   // console.log(onlineNewsfeed);
-  document.querySelector("#news-feed").innerHTML = printNewsfeed;
+  // document.querySelector("#news-feed").innerHTML = printNewsfeed;
 
   // const divNews = (style, insideDivTitle, url, altText, text) => {
   //   return `<div class="${style}">
@@ -307,3 +307,49 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
   //     ${p (text)}
   //     </div>`
   // }
+
+
+
+
+
+
+//   document.querySelector("#career").addEventListener("click", buildExecutiveSummary )
+
+// function buildExecutiveSummary(){
+//   console.log("This is the executive summary being built")
+// } 
+
+
+
+
+
+//   document.querySelector("#career").addEventListener("click", function(){
+//     console.log("you clicked hte thing")
+//   })
+
+
+
+
+document.querySelector(".nav-career").addEventListener("click", function(){
+  document.querySelector("#executive-summary").innerHTML = finishedCareerPageHTML 
+})
+
+document.querySelector(".nav-executive").addEventListener("click", function(){
+  document.querySelector("#executive-summary").innerHTML = summaryPage 
+})
+
+document.querySelector(".nav-personal").addEventListener("click", function(){
+ document.querySelector("#executive-summary").innerHTML =  personalBuilder( "Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+  
+  
+})
+
+document.querySelector(".nav-news").addEventListener("click", function(){
+  document.querySelector("#executive-summary").innerHTML = printNewsfeed  
+})
+
+document.querySelector(".nav-extra").addEventListener("click", function(){
+  document.querySelector("#executive-summary").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
+ 
+})
+
