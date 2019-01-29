@@ -1,23 +1,63 @@
-.green-background{
-    background-color: green;
-    border: 2px solid black;
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0em;
+    font-family: 'Major Mono Display', monospace;
+    background: teal;
+    padding: 1em;
+    font-size: 1.5em;
+    padding-left: 1em;
 }
+nav a{
+    padding-left: 1em;
+}
+a:active {
+  color: yellow;
+}
+
+a:visited{
+    color: yellow
+}
+
+section {
+    padding-top:3em;
+}
+ul {
+    list-style: square outside none;
+}
+    
+
+h1{
+
+    font-family: 'Major Mono Display', monospace;
+}
+
+h2, h3, h4, p, ul{
+    font-family: 'Krub', sans-serif;
+}
+
 
 .extras-section{
     width: 50vw;
     display: flex;
     flex-direction:row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
+    /* padding: 1em; */
+    margin: 1em;
     border: red solid 1px;
 
+}
+
+.extras-section a{
+    font-family: 'Krub', sans-serif;
 }
 .divStyle{
     display: flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 1em;
     color: red;
     border: black solid 1px;
 }
