@@ -82,9 +82,17 @@ h4 {
     color: white;
 }
 
-
-  img {
+img {
     max-width: 40%;
     height: auto;
     width: auto\9;
-  }
+}
+
+#personal-life li {
+    /* font-size: 16px;   */
+    font-weight: normal
+}
+#personal-life > ul {
+    font-weight: bold;
+}
+
