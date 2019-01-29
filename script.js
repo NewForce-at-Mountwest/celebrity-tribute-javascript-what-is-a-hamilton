@@ -80,11 +80,11 @@ const linData = {
         placesToViewWork: [
             {
                 name: "Youtube",
-                url: ""
+                url: "https://www.youtube.com/channel/UChwAKuNBC2Bc0G26tlZBI4w"
             },
             {
                 name: "Broadway",
-                url: ""
+                url: "https://www.broadway.com/shows/hamilton-broadway/"
             }
         ],
         pastShowDates: ["January 15, 2019", "December 12, 2018", "October 7, 2018", "September 4, 2018", "August 1, 2018", "July 19, 2018", "July 2, 2018", "June 18, 2018", ]
@@ -265,15 +265,15 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
   //return HTML string 
   return buildString;
   }
-  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources", "extras-section")
-  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View", "extras-section")
+  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources:", "extras-section")
+  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View:", "extras-section")
   // console.log("online resources string", onlineResourcesString) 
   
   // build a section for past show dates   
   const buildSectionShowDates = (array, listClass) => {
     let buildString = "";
     buildString = buildString + createListComponent(array, listClass)
-    buildString = `<h3>Past Show Dates</h3> ${buildString}`
+    buildString = `<h3>Past Show Dates:</h3> ${buildString}`
   return buildString;
   }
     
