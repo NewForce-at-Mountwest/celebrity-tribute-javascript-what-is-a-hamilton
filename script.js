@@ -37,7 +37,7 @@ const linData = {
       cityOfResidence: "New York City",
       nationality: "Puerto Rican, American",
       family: {
-        spouse: "Vanessa Nada",
+        spouse: ["Vanessa Nada"],
         kids: ["Sebastian Miranda",
           "Francisco Miranda"
         ],
@@ -133,7 +133,7 @@ const a = (url, altText) => {
   return `<a href=${url} target="_blank">${altText}</a>`
 }
 //How to call the function (insert your section into ("#sectionName"):
-//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background")
+//document.querySelector("#personal-life").innerHTML = a("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background")
 
 // This function creates a paragraph element with text and a user-defined style
   const P = (text) => {
@@ -192,7 +192,7 @@ ${h3(nationality)}
 ${P(natLocs)}
 ${h3(family)}
 ${ul(spouseLable)}
-${li(spouse)}
+${createListComponent(spouse)}
 ${ul(parentsLable)}
 ${createListComponent(parents)}
 ${ul(kidsLable)}
