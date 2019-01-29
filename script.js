@@ -125,7 +125,7 @@ const divNews = (style, insideDivTitle, url, altText, text) => {
   return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
-    ${p (text)}
+    ${P (text)}
     </div>`
 }
 //link-functions
@@ -157,6 +157,50 @@ const h3 = (contentTitle) => {
 const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
+
+const img = (imageURL, altText) => {
+  return `<img src="${imageURL}" alt="${altText}">`
+}
+  
+
+const summarySection1 = (name,listComponent, aliasList) => {
+    
+        return `${h3(name)}
+        ${createListComponent(listComponent, aliasList)} `}
+    //  document.querySelector("#Aliases").innerHTML = summarySection1("Aliases", "AliasList")
+    const aliases = summarySection1("Aliases",linData.executiveSummary.listOfAliases, "AliasList")
+    document.querySelector("#executive-summary").innerHTML = aliases;
+
+const summarySection2 = (name, listComponent, collaboratorsList) => {
+  return `${h3(name)}
+  ${createListComponent(listComponent, collaboratorsList)}`}
+  const collaborators = summarySection2("Known Collaborators", linData.executiveSummary.knownCollaborations, "collaborationsList" )
+  document.querySelector("#executive-summary").innerHTML = collaborators;
+
+ const summaryPageFunction = (title, Alias, url, altText, Collaborations) => {
+  return `${h1(title)}
+          ${Alias}
+          ${img(url,altText)}
+          ${Collaborations}`}
+  
+const summaryPage = summaryPageFunction("Lin Manuel Miranda", aliases, linData.executiveSummary.image.photURL, linData.executiveSummary.image.caption, collaborators)
+document.querySelector("#executive-summary").innerHTML = summaryPage;
+  
+
+// Need to build loop so the add to each other?!
+
+
+
+
+  // career: {
+//   shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
+//   MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
+//   notableRoles: ["Usnavi", "Alexander Hamilton"],
+//   notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
+//   awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
+// },
+
+
 
 
 // Finished Career Page Function
@@ -236,10 +280,30 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
  const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
  
  document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
+//------------------------------------------------------------------------------------------------------
 
+ const buildSectionNewsfeed = (style, array, header, sectionClass)=>{
+  let buildString = ""
+  for(let i=0;i<array.length; i++){
+    // call and loop through divExtras function
+   let HTMLString = divNews(style, array[i].title, array[i].url, "Link", array[i].date)  
+   buildString = `${buildString}${HTMLString}`
+   console.log("this is the string it is building in online res", buildString)
+  }
+  //add header to string
+  buildString = `${h2(header)}<section class =${sectionClass}>${buildString}</section>`
+  //return HTML string 
+  return buildString;
+  }
 
+  const printNewsfeed = buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")
+  // console.log(onlineNewsfeed);
+  document.querySelector("#news-feed").innerHTML = printNewsfeed;
 
-
-
-
-
+  // const divNews = (style, insideDivTitle, url, altText, text) => {
+  //   return `<div class="${style}">
+  //     ${h4 (insideDivTitle)}
+  //     ${a (url, altText)}
+  //     ${p (text)}
+  //     </div>`
+  // }
