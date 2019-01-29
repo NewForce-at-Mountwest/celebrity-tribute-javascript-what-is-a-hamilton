@@ -108,36 +108,38 @@ const createListComponent = (listInfo, listClass) => {
 }
 return `<ul class="list">${unorderedListBuild}</ul>`
 }
+
 // run below this to check functionality
 // document.querySelector("#career").innerHTML = createListComponent(linData.career.awards, "shortIntro")
+
+
 // Div container function for extras page
   const divExtras = (style, insideDivTitle, url, altText) => {
-    return `<section div="${style}">
+    return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
     </div>`
 }
 // Div container function for news feed page
 const divNews = (style, insideDivTitle, url, altText, text) => {
-  return `<section div="${style}">
+  return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
     ${p (text)}
     </div>`
 }
 //link-functions
-const links = (url, altText) => {
+const a = (url, altText) => {
   return `<a href=${url} target="_blank">${altText}</a>`
 }
 //How to call the function (insert your section into ("#sectionName"):
-//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background");
+//document.querySelector("#personal-life").innerHTML = links("https://en.wikipedia.org/wiki/Puerto_Rican_citizenship","PR citizenship", "green-background")
 
-
-
-  // This function creates a paragraph element with text and a user-defined style
+// This function creates a paragraph element with text and a user-defined style
   const P = (text) => {
     return `<p>${text}</p>`
 }
+
 //H-elements
 const h1 = (title) => {
   return `<h1>${title}</h1>`
@@ -155,15 +157,6 @@ const h3 = (contentTitle) => {
 const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
-// career: {
-//   shortIntro: "Lin-Manuel Miranda has written and performed in many successful musicals and movies since 2002. His most recent               musical being Hamilton: An American Musical. He recently starred in the movie, Mary Poppins Returns.",
-//   MusicalsWritten: ["In The Heights", "Bring It On: The Musical", "Hamilton: An American Musical"],
-//   notableRoles: ["Usnavi", "Alexander Hamilton"],
-//   notableSongs: ["In The Heights", "My Shot", "Alexander Hamilton"],
-//   awards: ["Multiple, Grammy Awards", "Multiple Tony Awards", "An Emmy Award"]
-// },
-
-
 
 
 // Finished Career Page Function
@@ -185,6 +178,7 @@ const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrit
 const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career.shortIntro, "Musicals Written:", linData.career.MusicalsWritten, "Notable Roles:", linData.career.notableRoles, "Notable Songs:", linData.career.notableSongs, "Awards", linData.career.awards)
 
 document.querySelector("#career").innerHTML = finishedCareerPageHTML
+
 
 
 const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => `${h2(personalLife)}
@@ -209,6 +203,39 @@ ${createListComponent(pets)}
 
 document.querySelector("#personal-life").innerHTML = personalBuilder(
 "Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+
+//**************************************************************************************************/
+// start creating functions to make sections for extras page
+//build a function that can make section for online resources and Places to View
+
+const buildSectionExtras = (style, array, header, sectionClass)=>{
+  let buildString = ""
+  for(let i=0;i<array.length; i++){
+    // call and loop through divExtras function
+   let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
+   buildString = `${buildString}${HTMLString}`
+  //  console.log("this is the string it is building in online res", buildString)
+  }
+  //add header to string
+  buildString = `${h3(header)}<section class =${sectionClass}>${buildString}</section>`
+  //return HTML string 
+  return buildString;
+  }
+  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources", "extras-section")
+  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View", "extras-section")
+  // console.log("online resources string", onlineResourcesString) 
+  
+  // build a section for past show dates   
+  const buildSectionShowDates = (array, listClass) => {
+    let buildString = "";
+    buildString = buildString + createListComponent(array, listClass)
+    buildString = `<h3>Past Show Dates</h3> ${buildString}`
+  return buildString;
+  }
+    
+ const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
+ 
+ document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
 
 
 
