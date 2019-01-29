@@ -158,7 +158,6 @@ const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
 
-
 // Finished Career Page Function
 const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
   `
@@ -252,9 +251,9 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
   return buildString;
   }
 
-  const onlineNewsfeed = buildSectionNewsfeed("divStyle", linData.newsfeed, "Newsfeed", "news-feed")
+  const printNewsfeed = buildSectionNewsfeed("newsfeed", linData.newsfeed, "Newsfeed", "news-feed")
   // console.log(onlineNewsfeed);
-  document.querySelector("#news-feed").innerHTML = onlineNewsfeed;
+  document.querySelector("#news-feed").innerHTML = printNewsfeed;
 
   // const divNews = (style, insideDivTitle, url, altText, text) => {
   //   return `<div class="${style}">
