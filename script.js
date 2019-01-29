@@ -179,74 +179,6 @@ const finishedCareerPageHTML = careerPageHTML("Career", "Intro:", linData.career
 
 document.querySelector("#career").innerHTML = finishedCareerPageHTML
 
-//************************************************************************************************* */
-
-
-// start creating functions to make sections for extras page
-
-
-//build a section for online resources
-const buildSectionOnlineRes = (style, array)=>{
-  let buildString = ""
-  for(let i=0;i<array.length; i++){
-    
-   let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
-   buildString = `${buildString}${HTMLString}`
-   console.log("this is the string it is building in online res", buildString)
-  }
-  //add header to string
-  buildString = `<h3>Online Resources</h3>${buildString}`
-  //return HTML string 
-  return buildString;
-  }
-  const onlineResourcesString = buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
-  console.log("online resources string", onlineResourcesString)
-  
-  // document.querySelector("#extras-report").innerHTML=buildSectionOnlineRes("divStyle", linData.extrasReport.onlineResources)
-  
-  //build a section for places to view
-  
-  const buildSectionPlacesToView = (style, array)=>{
-    let buildString = ""
-    for(let i=0;i<array.length; i++){
-      
-     let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
-     buildString = buildString + HTMLString
-    }
-    buildString = `<h3>Places to View</h3> ${buildString}`
-    return buildString;
-    }
-    const placesToViewString = buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
-  
-    // document.querySelector("#extras-report").innerHTML=buildSectionPlacesToView("divStyle", linData.extrasReport.placesToViewWork)
-    
-  
-  
-  
-  // build a section for past show dates
-   
-  const buildSectionShowDates = (array, listClass) => {
-    let buildString = "";
-    buildString = buildString + createListComponent(array, listClass)
-    buildString = `<h3>Past Show Dates</h3> ${buildString}`
-  return buildString;
-  }
-    
- const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
- 
- document.querySelector("#extras-report").innerHTML = `${onlineResourcesString}${placesToViewString}${showDatesString}`
-
-// function for full list component
-// const createListComponent = (listInfo, listClass) => {
-//   let unorderedListBuild = ""
-
-//   for(let i=0; i < listInfo.length; i++){
-
-//    unorderedListBuild += li(listInfo[i], listClass)
-// }
-// return `<ul class="list">${unorderedListBuild}</ul>`
-
-
 
 
 const personalBuilder=(personalLife, birthDate, date, birthLocation, location, cityOfResidence, city, nationality, natLocs, family, spouseLable, spouse, parentsLable, parents, kidsLable, kids, petsLable, pets ) => `${h2(personalLife)}
@@ -271,6 +203,39 @@ ${createListComponent(pets)}
 
 document.querySelector("#personal-life").innerHTML = personalBuilder(
 "Personal Life", "Birth Date:", linData.personalLife.birthDate, "Birth Location:", linData.personalLife.birthLocation, "City of Residence:", linData.personalLife.cityOfResidence, "Nationality:", linData.personalLife.nationality, "Family:", "Spouse:", linData.personalLife.family.spouse, "Parents:", linData.personalLife.family.parents, "Kids:", linData.personalLife.family.kids, "Pets:", linData.personalLife.family.pets)
+
+//**************************************************************************************************/
+// start creating functions to make sections for extras page
+//build a function that can make section for online resources and Places to View
+
+const buildSectionExtras = (style, array, header, sectionClass)=>{
+  let buildString = ""
+  for(let i=0;i<array.length; i++){
+    // call and loop through divExtras function
+   let HTMLString = divExtras(style, array[i].name, array[i].url, "Link")  
+   buildString = `${buildString}${HTMLString}`
+  //  console.log("this is the string it is building in online res", buildString)
+  }
+  //add header to string
+  buildString = `${h3(header)}<section class =${sectionClass}>${buildString}</section>`
+  //return HTML string 
+  return buildString;
+  }
+  const onlineResourcesString = buildSectionExtras("divStyle", linData.extrasReport.onlineResources, "Online Resources", "extras-section")
+  const placesToViewString = buildSectionExtras("divStyle", linData.extrasReport.placesToViewWork, "Places to View", "extras-section")
+  // console.log("online resources string", onlineResourcesString) 
+  
+  // build a section for past show dates   
+  const buildSectionShowDates = (array, listClass) => {
+    let buildString = "";
+    buildString = buildString + createListComponent(array, listClass)
+    buildString = `<h3>Past Show Dates</h3> ${buildString}`
+  return buildString;
+  }
+    
+ const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
+ 
+ document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
 
 
 
