@@ -62,3 +62,18 @@ h2, h3, h4, p, ul{
     border: black solid 1px;
 }
 
+.newsfeed{
+    background-color: brown;
+    color: white;
+}
+
+
+#personal-life li {
+    /* font-size: 16px;   */
+    font-weight: normal
+}
+
+#personal-life > ul {
+    font-weight: bold;
+}
+
