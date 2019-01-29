@@ -32,7 +32,7 @@ h1{
     font-family: 'Major Mono Display', monospace;
 }
 
-h2, h3, p, ul{
+h2, h3, h4, p, ul{
     font-family: 'Krub', sans-serif;
 }
 
@@ -47,6 +47,10 @@ h2, h3, p, ul{
     margin: 1em;
     border: red solid 1px;
 
+}
+
+.extras-section a{
+    font-family: 'Krub', sans-serif;
 }
 .divStyle{
     display: flex;
