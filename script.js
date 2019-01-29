@@ -158,7 +158,6 @@ const h4 = (insideDivTitle) => {
   return `<h4>${insideDivTitle}</h4>`
 }
 
-<<<<<<< HEAD
 const img = (imageURL, altText) => {
   return `<img src="${imageURL}" alt="${altText}">`
 }
@@ -204,8 +203,6 @@ document.querySelector("#executive-summary").innerHTML = summaryPage;
 
 
 
-=======
->>>>>>> master
 // Finished Career Page Function
 const careerPageHTML = (career,shortIntroHeader,shortIntroLocation, musicalsWrittenHeader, musicalsWrittenLocation, notableRolesHeader, notableRolesLocation, notableSongs, notableSongsLocation, awards, awardsLocation) => 
   `
