@@ -125,7 +125,7 @@ const divNews = (style, insideDivTitle, url, altText, text) => {
   return `<div class="${style}">
     ${h4 (insideDivTitle)}
     ${a (url, altText)}
-    ${p (text)}
+    ${P (text)}
     </div>`
 }
 //link-functions
@@ -236,10 +236,30 @@ const buildSectionExtras = (style, array, header, sectionClass)=>{
  const showDatesString = buildSectionShowDates(linData.extrasReport.pastShowDates, "list")
  
  document.querySelector("#extras-report").innerHTML = `${h2("Extras")}${onlineResourcesString}${placesToViewString}${showDatesString}`
+//------------------------------------------------------------------------------------------------------
 
+ const buildSectionNewsfeed = (style, array, header, sectionClass)=>{
+  let buildString = ""
+  for(let i=0;i<array.length; i++){
+    // call and loop through divExtras function
+   let HTMLString = divNews(style, array[i].title, array[i].url, "Link", array[i].date)  
+   buildString = `${buildString}${HTMLString}`
+   console.log("this is the string it is building in online res", buildString)
+  }
+  //add header to string
+  buildString = `${h3(header)}<section class =${sectionClass}>${buildString}</section>`
+  //return HTML string 
+  return buildString;
+  }
 
+  const onlineNewsfeed = buildSectionNewsfeed("divStyle", linData.newsfeed, "Newsfeed", "news-feed")
+  // console.log(onlineNewsfeed);
+  document.querySelector("#news-feed").innerHTML = onlineNewsfeed;
 
-
-
-
-
+  // const divNews = (style, insideDivTitle, url, altText, text) => {
+  //   return `<div class="${style}">
+  //     ${h4 (insideDivTitle)}
+  //     ${a (url, altText)}
+  //     ${p (text)}
+  //     </div>`
+  // }
